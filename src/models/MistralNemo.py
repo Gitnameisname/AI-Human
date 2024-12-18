@@ -7,13 +7,13 @@ MODEL_URL = "https://integrate.api.nvidia.com/v1"
 TOKENIZER_DIR = "./tokenizer/mistral_nemo"
 API_KEY = "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"
 
-class NvidiaNemo:
+class MistralNemo:
     def __init__(self, system_context="", max_tokens=1024):
         self.client = OpenAI(
-                        base_url = "https://integrate.api.nvidia.com/v1",
-                        api_key = "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"
-                        )
-        
+                        base_url = "http://localhost:8080/v1",
+                        api_key="EMPTY"
+        )
+
         self.system_context = system_context
         self.tokenizer = AutoTokenizer.from_pretrained(TOKENIZER_DIR)
         self.max_tokens = max_tokens
@@ -42,14 +42,12 @@ class NvidiaNemo:
         # 대화 이력과 새 사용자 메시지를 사용하여 프롬프트를 생성합니다.
         messages = construct_prompt_with_context(user_msg, self.system_context, self.conversation_history)
 
-        # 언어 모델의 응답을 가져옵니다.
-        completion = generate(client=self.client, messages=messages, stream=True)
-
         agent_response = ""
-        for chunk in completion:
-            if chunk.choices[0].delta.content is not None:
-                yield chunk.choices[0].delta.content
-                agent_response += chunk.choices[0].delta.content
+        for chunk in generate_stream(client=self.client, messages=messages, stream=True):
+            if chunk is not None:
+                agent_response += chunk
+                yield agent_response
+                
 
         # 이 대화를 대화 이력에 저장합니다.
         self.conversation_history.append((user_msg, agent_response))

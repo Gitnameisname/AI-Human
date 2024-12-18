@@ -1,4 +1,4 @@
-def generate(client, messages, temperature=0.3, top_p=0.7, max_length=4096, conversation_history=[]):
+def generate_stream(client, messages, temperature=0.3, top_p=0.7, max_length=4096, conversation_history=[], stream=False):
     """
     Generates a response to the given prompt using a specified language model pipeline.
 
@@ -24,14 +24,56 @@ def generate(client, messages, temperature=0.3, top_p=0.7, max_length=4096, conv
     """
 
     completion = client.chat.completions.create(
-                model="nv-mistralai/mistral-nemo-12b-instruct",
-                messages=messages,
-                temperature=temperature,
-                top_p=top_p,
-                max_tokens=max_length
-                )
+            model="nv-mistralai/mistral-nemo-12b-instruct",
+            messages=messages,
+            temperature=temperature,
+            top_p=top_p,
+            max_tokens=max_length,
+            stream=stream
+    )
+    for chunk in completion:
+        print(f"text: {chunk.choices[0].delta.content}")
+        if chunk.choices[0].delta.content is not None:
+            content = chunk.choices[0].delta.content
+            if content.endswith("</s>"):
+                content = content[:-4]
+            else:
+                content = content + " "
+            yield content
 
-    return completion.choices[0].message.content
+def generate(client, messages, temperature=0.3, top_p=0.7, max_length=4096, conversation_history=[], stream=False):
+    """
+    Generates a response to the given prompt using a specified language model pipeline.
+
+    This function takes a prompt and passes it to a language model pipeline, such as LLaMA, 
+    to generate a text response. The function is designed to allow customization of the 
+    generation process through various parameters and keyword arguments.
+
+    Parameters:
+    - prompt (str): The input text prompt to generate a response for.
+    - max_length (int): The maximum length of the generated response. Default is 1024 tokens.
+    - pipe (callable): The language model pipeline function used for generation. Default is llama_pipe.
+    - **kwargs: Additional keyword arguments that are passed to the pipeline function.
+
+    Returns:
+    - str: The generated text response from the model, trimmed of leading and trailing whitespace.
+
+    Example usage:
+    ```
+    prompt_text = "Explain the theory of relativity."
+    response = generate(prompt_text, max_length=512, pipe=my_custom_pipeline, temperature=0.7)
+    print(response)
+    ```
+    """
+    completion = client.chat.completions.create(
+            model="nv-mistralai/mistral-nemo-12b-instruct",
+            messages=messages,
+            temperature=temperature,
+            top_p=top_p,
+            max_tokens=max_length
+    )
+    return completion
+
 
 def construct_prompt_with_context(main_prompt, system_context="", conversation_history=[]):
     """
