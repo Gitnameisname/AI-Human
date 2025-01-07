@@ -7,7 +7,7 @@ from MindMap.LogManager import LogManager
 logManager = LogManager()
 def main(host, port, stream):
     print(f"stream: {stream}")
-    chatbot = ChatBot(logManager=logManager, stream=stream)
+    chatbot = ChatBot(logManager=logManager)
 
     with gr.Blocks() as demo:
         gr.Markdown("# Streaming Chatbot")
@@ -54,6 +54,10 @@ if __name__ == "__main__":
     parser.add_argument("--stream", action="store_true", help="Enable streaming mode (default: False)")
 
     args = parser.parse_args()
+
+    logManager.log_info(f"host  : {args.host}")
+    logManager.log_info(f"port  : {args.port}")
+    logManager.log_info(f"stream: {args.stream}")
 
     main(host=args.host, port=args.port, stream=args.stream)
 

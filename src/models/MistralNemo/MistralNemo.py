@@ -2,26 +2,23 @@ from transformers import AutoTokenizer
 from openai import OpenAI
 
 from src.utils.chatutils import *
+from src.constants import MISTRALNEMO_TOKENIZER_DIR, MISTRALNEMO_URL
 
-MODEL_URL = "https://integrate.api.nvidia.com/v1"
-TOKENIZER_DIR = "./tokenizer/mistral_nemo"
-API_KEY = "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"
 
 class MistralNemo:
-    def __init__(self, system_context="", max_tokens=1024):
+    def __init__(self, max_tokens=1024):
         self.client = OpenAI(
-                        base_url = "http://localhost:8080/v1",
+                        base_url = MISTRALNEMO_URL,
                         api_key="EMPTY"
         )
 
-        self.system_context = system_context
-        self.tokenizer = AutoTokenizer.from_pretrained(TOKENIZER_DIR)
+        self.tokenizer = AutoTokenizer.from_pretrained(MISTRALNEMO_TOKENIZER_DIR)
         self.max_tokens = max_tokens
         self.conversation_history = []
 
-    def chat(self, user_msg):
+    def chat(self, user_msg, system_context=""):
         # 대화 이력과 새 사용자 메시지를 사용하여 프롬프트를 생성합니다.
-        messages = construct_prompt_with_context(user_msg, self.system_context, self.conversation_history)
+        messages = construct_prompt_with_context(user_msg, system_context, self.conversation_history)
         
         # 언어 모델의 응답을 가져옵니다.
         completion = generate(client=self.client, messages=messages)
@@ -37,10 +34,10 @@ class MistralNemo:
 
         return agent_response
     
-    def stream_chat(self, user_msg):
+    def stream_chat(self, user_msg, system_context=""):
 
         # 대화 이력과 새 사용자 메시지를 사용하여 프롬프트를 생성합니다.
-        messages = construct_prompt_with_context(user_msg, self.system_context, self.conversation_history)
+        messages = construct_prompt_with_context(user_msg, system_context, self.conversation_history)
 
         agent_response = ""
         for chunk in generate_stream(client=self.client, messages=messages, stream=True):
