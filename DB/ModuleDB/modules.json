@@ -1,0 +1,9 @@
+{
+    "modules": [
+        {
+            "module_name": "timechecker",
+            "description": "시간을 확인하는 모듈",
+            "module_path": "src.tools.time"
+        }
+    ]
+}
