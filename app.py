@@ -25,10 +25,12 @@ def main(host, port, stream):
             history.append((user_input, bot_response))
 
             for bot_message in chatbot.stream_chat(user_input):
-                bot_response = bot_message
-                history[-1] = [(user_input, bot_response)]
-                yield history[-1], ""
+                bot_response += bot_message
+                history[-1] = (user_input, bot_message)
+                yield history, ""
                 logManager.log_info(f"Model: {bot_response}")
+
+            history[-1] = (user_input, bot_response)
 
         def user_interaction(user_input, history):
             bot_response = chatbot.chat(user_input)
@@ -60,5 +62,3 @@ if __name__ == "__main__":
     logManager.log_info(f"stream: {args.stream}")
 
     main(host=args.host, port=args.port, stream=args.stream)
-
-            
