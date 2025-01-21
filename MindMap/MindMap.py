@@ -2,7 +2,7 @@ import os
 import datetime
 
 from MindMap.LogManager import LogManager
-from src.utils import *
+from src.tools.file.json import *
 from src.constants import *
 
 class MindMap:
@@ -52,12 +52,12 @@ class MindMap:
             self.logManager.log_error(f"Memory Load: Failed - File not found")
             return []
     
-    def add_td_memory(self, category: str, speaker, content):
+    def add_td_memory(self, category: str, speaker, contents):
         memory_entry = {
             "time": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             "category": category,
             "speaker": speaker,
-            "content": content
+            "contents": contents
         }
 
         self.td_memory.append(memory_entry)
@@ -88,6 +88,24 @@ class MindMap:
             self.logManager.log_error(f"Memory Save: Failed - File not found")
 
     def add_instance_memory(self, speaker:str, contents: str):
+        """
+        요청자, 요청 사항, 결과
+        사용자가
+        시간을 물어보았다.
+        계획을 세웠다.
+
+        내부 시스템이
+        시간을 확인할 수 있는 모듈을 검색하게 하였다.
+        답변
+
+        내부 시스템이
+        시간을 확인하였고
+        답변
+
+        내부 시스템이
+        전체 과정을 바탕으로 사용자에게 전달할 정보를 생성한다.
+        전달할 내용
+        """
         new_entry = {
             "speaker": speaker,
             "contents": contents

@@ -5,7 +5,6 @@ def trim_conversation_history(memory, tokenizer, max_tokens):
     else:
         conversation_history = []
 
-
     history_string = ''.join(user + agent for user, agent in conversation_history)
 
     history_tokens = len(tokenizer.encode(history_string))
@@ -30,7 +29,8 @@ def convert_memory_to_char(memory):
             checker = True
             user_msg = entry['contents']
 
-        if checker and entry['speaker'].lower() == 'agent':
+        if checker and entry['speaker'].lower() == 'model' or \
+           entry['speaker'].lower() == 'agent':
             checker = False
             agent_msg = entry['contents']
             conversation_history.append((user_msg, agent_msg))

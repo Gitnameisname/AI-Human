@@ -1,7 +1,10 @@
-import json
+def get_model_info(json_list, model_name):
+    """
+    모델 이름을 사용하여 모델 정보를 반환합니다.
+    """
 
-def get_json_data(path):
-    with open(path, "r", encoding="utf-8") as file:
-        data = json.load(file)
+    for model in json_list:
+        if model["name"] == model_name:
+            return model
 
-    return data
+    return None

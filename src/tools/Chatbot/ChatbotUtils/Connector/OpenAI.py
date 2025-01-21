@@ -1,7 +1,4 @@
 from openai import OpenAI
-from src.constants import OPENAI_APIKEY
-
-client = OpenAI(api_key=OPENAI_APIKEY)
 
 def construct_prompt_with_context(main_prompt, conversation_history=[], prompt_extension=''):
     """
@@ -12,7 +9,6 @@ def construct_prompt_with_context(main_prompt, conversation_history=[], prompt_e
         return main_prompt + f"\n{prompt_extension}"
     
     full_prompt = ''
-
     for user_msg, agent_response in conversation_history:
         full_prompt += f"User: {user_msg}\nModel: {agent_response}\n"
     
@@ -20,7 +16,8 @@ def construct_prompt_with_context(main_prompt, conversation_history=[], prompt_e
     
     return full_prompt + f"\n{prompt_extension}"
 
-def generate(model_name, prompt, system_context="", max_tokens=4096, temperature=0.7, top_p=0.7):
+def generate(client: OpenAI, model_name, prompt, system_context="",
+             max_tokens=4096, temperature=0.7, top_p=0.7):
     """
     OpenAI API를 사용하여 언어 모델의 응답을 생성합니다.
     """
@@ -44,7 +41,8 @@ def generate(model_name, prompt, system_context="", max_tokens=4096, temperature
 
     return completion.choices[0].message.content.strip()
 
-def generate_stream(model_name, prompt, system_context="", max_tokens=4096, temperature=0.7, top_p=0.7):
+def generate_stream(client: OpenAI, model_name, prompt, system_context="",
+                    max_tokens=4096, temperature=0.7, top_p=0.7):
     """
     OpenAI API를 사용하여 언어 모델의 응답을 생성합니다.
     """

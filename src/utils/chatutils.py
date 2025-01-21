@@ -32,7 +32,6 @@ def generate_stream(client, messages, temperature=0.3, top_p=0.7, max_length=409
             stream=stream
     )
     for chunk in completion:
-        print(f"text: {chunk.choices[0].delta.content}")
         if chunk.choices[0].delta.content is not None:
             content = chunk.choices[0].delta.content
             if content.endswith("</s>"):

@@ -1,13 +1,12 @@
 import argparse
 import gradio as gr
-from Agent import ChatBot
+from src.Systems.BrocaSystems import BrocaSystems
 
 from MindMap.LogManager import LogManager
 
 logManager = LogManager()
 def main(host, port, stream):
-    print(f"stream: {stream}")
-    chatbot = ChatBot(logManager=logManager)
+    chatbot = BrocaSystems(logManager=logManager)
 
     with gr.Blocks() as demo:
         gr.Markdown("# Streaming Chatbot")
@@ -24,18 +23,20 @@ def main(host, port, stream):
             bot_response = ""
             history.append((user_input, bot_response))
 
-            for bot_message in chatbot.stream_chat(user_input):
-                bot_response += bot_message
-                history[-1] = (user_input, bot_message)
+            for ai_message in chatbot.stream_chat(user_input):
+                try:
+                    bot_response += ai_message
+                except Exception as e:
+                    logManager.log_error(f"(app.py) stream_user_interaction: {e}")
+                history[-1] = (user_input, ai_message)
                 yield history, ""
-                logManager.log_info(f"Model: {bot_response}")
 
             history[-1] = (user_input, bot_response)
 
         def user_interaction(user_input, history):
-            bot_response = chatbot.chat(user_input)
-            history = history + [(user_input, bot_response)]
-            logManager.log_info(f"Model: {bot_response}")
+            ai_response = chatbot.chat(user_input)
+            history = history + [(user_input, ai_response)]
+            logManager.log_info(f"Model: {ai_response}")
 
             return history, user_input
 
