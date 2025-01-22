@@ -12,10 +12,15 @@
             "english": {
                 "familiy name": "Choi",
                 "first name": "Cheol-Kyun"
+            },
+            "title": {
+                "korean": "과장",
+                "english": "manager"
             }
         },
         "rule": {
-            "language_preference": "korean"
+            "language_preference": "korean",
+            "timezone": "Asia/Seoul"
         },
         "traits": {
             "logical": {

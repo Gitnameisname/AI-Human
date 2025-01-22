@@ -17,8 +17,8 @@
     ],
     "actions": [
         {
-            "category": "module_retrival",
-            "description": "가지고 있는 모듈 목록에서 필요한 모듈을 찾습니다. 모듈을 찾고 난 뒤에는, 적절한 함수를 찾아냅니다."
+            "category": "use_module",
+            "description": "가지고 있는 모듈 목록에서 필요한 모듈을 찾아, 문제 해결에 적합한 함수를 찾아냅니다. 그리고 해당 함수를 사용하여 문제를 해결합니다."
         },
         {
             "category": "database_retival",
@@ -37,19 +37,27 @@
             "description": "기억 데이터베이스에서 정보를 기억해냅니다."
         },
         {
+            "category": "make_conclusion",
+            "description": "주어진 정보를 바탕으로 결론을 도출합니다."
+        },
+        {
             "category": "answering",
-            "description": "질문에 대한 답변을 생성합니다."
+            "description": "사용자의 질문에 답변을 합니다."
         }
     ],
-    "output_format": "[\n  {\n        \"action\": \"action_category\",\n        \"description\": \"description about what todo.\"\n    },    {\n        \"category\": \"action_category\",\n        \"description\": \"description about what todo.\"\n    },...\n]",
+    "output_format": "[\n  {\n        \"action\": \"action_category\",\n        \"description\": \"description about what todo.\"\n    },    {\n        \"action\": \"action_category\",\n        \"description\": \"description about what todo.\"\n    },...\n]",
     "output_example": [
         {
             "input": "오늘이 며칠이야?",
-            "output": "[\n   {\n        \"action\": \"module_retrival\",\n        \"description\": \"현재 날짜를 알아내기 위한 모듈을 찾습니다. 적합한 모듈을 찾으면 현재 날짜를 반환하는 함수를 찾습니다.\"\n    },    {\n        \"category\": \"answering\",\n        \"description\": \"사용자에게 현재 날짜를 답변합니다.\"\n    }\n]"
+            "output": "[\n   {\n        \"action\": \"user_module\",\n        \"description\": \"현재 날짜를 알아내기 위한 모듈을 찾습니다. 적합한 모듈을 찾으면 현재 날짜를 반환하는 함수를 찾습니다.\"\n    },\n    {\n        \"action\": \"make_conclusion\",\n        \"description\": \"작업한 내용들을 바탕으로 사용자에게 답변을 하기 위한 결론을 도출합니다.\"\n    },\n    {\n        \"action\": \"answering\",\n        \"description\": \"결론을 바탕으로 사용자에게 답변합니다.\"\n    }\n]"
         },
         {
             "input": "안녕?",
             "output": "[\n  {\n        \"action\": \"answering\",\n        \"description\": \"사용자에게 인사를 합니다.\"\n    }\n]"
+        },
+        {
+            "input": "Python으로 간단한 계산기를 만들어줘",
+            "output": "[\n  {\n        \"action\": \"answering\",\n        \"description\": \"사용자의 질문에 답변을 합니다.\"\n    }\n]"
         }
     ]
 }

@@ -1,10 +1,10 @@
 import datetime
 
+datetime.timezone(datetime.timedelta(hours=9))
 """
 설명:
 이 파일은 현재 시간을 알 수 있는 함수들을 모아놓은 파일입니다.
 """
-
 def time_now():
     """
     설명:

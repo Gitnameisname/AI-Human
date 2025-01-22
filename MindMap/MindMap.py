@@ -14,6 +14,7 @@ class MindMap:
 
         self.td_memory = self.load_memory(self.tdm_filepath)
         self.ti_memory = self.load_memory(R_TI_MEMORY_PATH)
+        self.sago_process_memory = []
         self.instance_memory = []
 
     def create_memory_file(self):
@@ -114,3 +115,18 @@ class MindMap:
 
     def initialize_instance_memory(self):
         self.instance_memory = []
+
+    def add_sago_process_memory(self, action:str, request: str, result: str):
+        new_entry = {
+            "action": action,
+            "related_action": {
+                "previous_action": "",
+                "next_action": ""
+            },
+            "request": request,
+            "result": result
+        }
+        self.sago_process_memory.append(new_entry)
+
+    def initialize_sago_process_memory(self):
+        self.sago_process_memory = []

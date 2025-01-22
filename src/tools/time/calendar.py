@@ -1,5 +1,7 @@
 import datetime
 
+datetime.timezone(datetime.timedelta(hours=9))
+
 """
 설명:
 이 파일은 오늘 날짜와 관련된 함수들을 모아놓은 파일입니다.

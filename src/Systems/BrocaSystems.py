@@ -24,9 +24,14 @@ class BrocaSystems:
     
     def stream_chat(self, user_msg):
         self.logManager.log_info(f"User: {user_msg}")
-        system_context = default_system_context(self.mindMap.identity)
 
         plan = self.saGoSystems.planning(user_msg)
+        conclusion = ""
+        if len(plan) > 1:
+            conclusion = self.saGoSystems.SaGoProcess(user_msg=user_msg, plan=plan[:-1])
+            self.logManager.log_info(f"Conclusion: {conclusion}")
+
+        system_context = answering_system_context(user_msg=user_msg, conclusion=conclusion)
 
         for agent_response in self.chatbot.stream_chat(user_msg=user_msg, memory=self.mindMap.td_memory, system_context=system_context):
             yield agent_response

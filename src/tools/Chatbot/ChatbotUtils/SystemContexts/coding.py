@@ -1,9 +1,11 @@
 import json
 from src.constants import PERSONADB_DIR
 
-def planning_system_context():
-    with open(f'{PERSONADB_DIR}/planning.json', 'r', encoding='utf-8') as f:
+def coding_system_context(request: str):
+    with open(f'{PERSONADB_DIR}/coding.json', 'r', encoding='utf-8') as f:
         persona = json.load(f)
+
+    persona['request'] = request
 
     system_context = f"""
 {persona}
