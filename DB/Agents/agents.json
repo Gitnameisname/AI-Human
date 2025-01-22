@@ -1,0 +1,14 @@
+[
+    {
+        "model_name": "mistral-nemo",
+        "base_url": "http://localhost:8080/v1",
+        "tokenizer": "./tokenizer/mistral_nemo",
+        "api_key": "EMPTY"
+    },
+    {
+        "model_name": "gpt-4o-mini",
+        "base_url": "",
+        "tokenizer": "",
+        "api_key": ""
+    }
+]
