@@ -1,11 +1,11 @@
 import os, time
-from datetime import datetime
+import datetime
 
 def timezone_now():
     """
     현재 TimeZone을 확인합니다.
     """
-    return datetime.now().astimezone().tzname()
+    return datetime.datetime.now().astimezone().tzname()
     
 def change_timezone(target_timezone: str):
     """

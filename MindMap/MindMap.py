@@ -88,28 +88,12 @@ class MindMap:
         except FileNotFoundError:
             self.logManager.log_error(f"Memory Save: Failed - File not found")
 
-    def add_instance_memory(self, speaker:str, contents: str):
-        """
-        요청자, 요청 사항, 결과
-        사용자가
-        시간을 물어보았다.
-        계획을 세웠다.
-
-        내부 시스템이
-        시간을 확인할 수 있는 모듈을 검색하게 하였다.
-        답변
-
-        내부 시스템이
-        시간을 확인하였고
-        답변
-
-        내부 시스템이
-        전체 과정을 바탕으로 사용자에게 전달할 정보를 생성한다.
-        전달할 내용
-        """
+    def add_instance_memory(self, actor: str, action:str, request: str, result: str):
         new_entry = {
-            "speaker": speaker,
-            "contents": contents
+            "actor": actor,
+            "action": action,
+            "request": request,
+            "result": result
         }
         self.instance_memory.append(new_entry)
 

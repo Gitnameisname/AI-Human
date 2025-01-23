@@ -11,6 +11,7 @@ class SaGoSystems:
         self.logManager = logManager
         self.mindMap = mindMap
         self.actionCore = ActionCore(logManager)
+        self.coder = Coder(logManager=self.logManager, mindMap=self.mindMap)
         self.chatbot = gpt_4o_mini()
         self.logManager.log_info(f"(SaGoSystems) Load: OK")
 
@@ -58,7 +59,7 @@ class SaGoSystems:
         self.logManager.log_info(f"(SaGoSystems) SaGoProcess")
 
         self.mindMap.initialize_sago_process_memory()
-        self.mindMap.add_sago_process_memory(action='listening', request=user_msg, result="")
+        # self.mindMap.add_sago_process_memory(action='listening', request=user_msg, result="")
 
         for action in plan:
             if action['action'] == 'use_module':
@@ -74,8 +75,7 @@ class SaGoSystems:
                 return conclusion
             
             elif action['action'] == 'coding':
-                codes = coding(action['description'], self.logManager, self.chatbot)
-                self.mindMap.add_sago_process_memory(action='coding', request=action['description'], result=codes)
+                self.coder.execute_codes(requests=action['description'])
 
             else:
                 self.logManager.log_error(f"(SaGoSystems) SaGoProcess: Invalid Action\naction: {action['action']}")

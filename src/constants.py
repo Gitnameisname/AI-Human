@@ -1,3 +1,5 @@
+CODING_PLAYGROUND = "Playground"
+
 AGENT_INFOFILE_PATH = "DB/Agents/agents.json"
 
 # DB PATH
