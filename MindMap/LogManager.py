@@ -39,16 +39,16 @@ class LogManager:
 
     def log_info(self, message):
         """Log an info message."""
-        self.logger.info(f"INFO: {message}")
+        self.logger.info(f"{message}")
 
     def log_warning(self, message):
         """Log a warning message."""
-        self.logger.warning(f"WARNING: {message}")
+        self.logger.warning(f"{message}")
 
     def log_error(self, message):
         """Log an error message."""
-        self.logger.error(f"ERROR: {message}")
+        self.logger.error(f"{message}")
 
     def log_critical(self, message):
         """Log a critical message."""
-        self.logger.critical(f"CRITICAL: {message}")
+        self.logger.critical(f"{message}")

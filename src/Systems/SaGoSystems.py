@@ -69,6 +69,7 @@ class SaGoSystems:
                 conclusion = make_conclusion(self.mindMap.sago_process_memory, self.logManager, self.chatbot)
                 self.logManager.log_info(f"(SaGoSystems) SaGoProcess: Conclusion\nconclusion: {conclusion}")
                 self.mindMap.initialize_sago_process_memory()
+                self.mindMap.add_td_memory(category="Thought", speaker="Model", contents=conclusion)
 
                 return conclusion
             

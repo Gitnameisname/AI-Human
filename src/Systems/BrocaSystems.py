@@ -29,7 +29,6 @@ class BrocaSystems:
         conclusion = ""
         if len(plan) > 1:
             conclusion = self.saGoSystems.SaGoProcess(user_msg=user_msg, plan=plan[:-1])
-            self.logManager.log_info(f"Conclusion: {conclusion}")
 
         system_context = answering_system_context(user_msg=user_msg, conclusion=conclusion)
 

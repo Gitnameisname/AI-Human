@@ -1,0 +1,140 @@
+[
+    {
+        "time": "2025-01-23 01:59:46",
+        "category": "answering",
+        "speaker": "User",
+        "contents": "안녕?"
+    },
+    {
+        "time": "2025-01-23 01:59:46",
+        "category": "answering",
+        "speaker": "Model",
+        "contents": "\"안녕하세요! 어떻게 도와드릴까요?\""
+    },
+    {
+        "time": "2025-01-23 01:59:53",
+        "category": "Thought",
+        "speaker": "Model",
+        "contents": "\"현재 시간은 01시입니다.\""
+    },
+    {
+        "time": "2025-01-23 01:59:54",
+        "category": "answering",
+        "speaker": "User",
+        "contents": "지금 몇시니?"
+    },
+    {
+        "time": "2025-01-23 01:59:54",
+        "category": "answering",
+        "speaker": "Model",
+        "contents": "\"현재 시간은 01시입니다.\""
+    },
+    {
+        "time": "2025-01-23 02:00:05",
+        "category": "Thought",
+        "speaker": "Model",
+        "contents": "\"현재 시간대는 UTC 기준으로 설정되어 있습니다.\""
+    },
+    {
+        "time": "2025-01-23 02:00:06",
+        "category": "answering",
+        "speaker": "User",
+        "contents": "지금 시간대는 어디 기준이야?"
+    },
+    {
+        "time": "2025-01-23 02:00:06",
+        "category": "answering",
+        "speaker": "Model",
+        "contents": "\"현재 시간대는 UTC 기준으로 설정되어 있습니다.\""
+    },
+    {
+        "time": "2025-01-23 11:00:24",
+        "category": "Thought",
+        "speaker": "Model",
+        "contents": "\"현재 시간대를 한국 표준시(KST)로 변환하는 방법을 찾았으며, 이를 통해 사용자가 원하는 시간을 정확하게 제공할 수 있습니다.\""
+    },
+    {
+        "time": "2025-01-23 11:00:25",
+        "category": "answering",
+        "speaker": "User",
+        "contents": "그러면 현재 시간대를 한국 표준시로 바꿔줘"
+    },
+    {
+        "time": "2025-01-23 11:00:25",
+        "category": "answering",
+        "speaker": "Model",
+        "contents": "\"현재 시간대를 한국 표준시(KST)로 변환하는 방법을 찾았으며, 이를 통해 사용자가 원하는 시간을 정확하게 제공할 수 있습니다!\""
+    },
+    {
+        "time": "2025-01-23 11:00:39",
+        "category": "Thought",
+        "speaker": "Model",
+        "contents": "\"현재 시간은 11시입니다.\""
+    },
+    {
+        "time": "2025-01-23 11:00:40",
+        "category": "answering",
+        "speaker": "User",
+        "contents": "지금 그러면 몇시인지 다시 알려줘"
+    },
+    {
+        "time": "2025-01-23 11:00:40",
+        "category": "answering",
+        "speaker": "Model",
+        "contents": "\"현재 시간은 11시입니다.\""
+    },
+    {
+        "time": "2025-01-23 11:00:55",
+        "category": "Thought",
+        "speaker": "Model",
+        "contents": "\"현재 시간은 11:00:54입니다.\""
+    },
+    {
+        "time": "2025-01-23 11:00:56",
+        "category": "answering",
+        "speaker": "User",
+        "contents": "현재 시각을 알려줘"
+    },
+    {
+        "time": "2025-01-23 11:00:56",
+        "category": "answering",
+        "speaker": "Model",
+        "contents": "\"현재 시간은 11:00:54입니다.\""
+    },
+    {
+        "time": "2025-01-23 11:01:09",
+        "category": "Thought",
+        "speaker": "Model",
+        "contents": "\"현재 날짜는 23일입니다.\""
+    },
+    {
+        "time": "2025-01-23 11:01:10",
+        "category": "answering",
+        "speaker": "User",
+        "contents": "오늘은 며칠이야?"
+    },
+    {
+        "time": "2025-01-23 11:01:10",
+        "category": "answering",
+        "speaker": "Model",
+        "contents": "\"현재 날짜는 23일입니다.\""
+    },
+    {
+        "time": "2025-01-23 11:01:35",
+        "category": "Thought",
+        "speaker": "Model",
+        "contents": "\"현재 날짜는 2025년 1월 23일입니다.\""
+    },
+    {
+        "time": "2025-01-23 11:01:35",
+        "category": "answering",
+        "speaker": "User",
+        "contents": "오늘 날짜를 알려줘"
+    },
+    {
+        "time": "2025-01-23 11:01:35",
+        "category": "answering",
+        "speaker": "Model",
+        "contents": "\"현재 날짜는 2025년 1월 23일입니다.\""
+    }
+]

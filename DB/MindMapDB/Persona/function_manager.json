@@ -4,8 +4,13 @@
     "rules": [
         {
             "rule": "답변 규칙",
-            "description": "오로지 함수 이름만 답변합니다."
+            "description": "답변 양식에 따라 function_name, args, kwargs를 반환합니다."
         }
     ],
+    "output_format": {
+        "function_name": "str",
+        "args": "list",
+        "kwargs": "dict"
+    },
     "functions": []
 }

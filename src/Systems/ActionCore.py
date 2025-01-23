@@ -20,7 +20,14 @@ class ActionCore:
 
         return functions
     
-    def execute_function(self, module_name: str, function_name: str, *args, **kwargs):
-        module = importlib.import_module(module_name)
-        function = getattr(module, function_name)
-        return function(*args, **kwargs)
+    def execute_function(self, module_name: str, function_info: dict):
+        try:
+            module = importlib.import_module(module_name)
+            function_name = function_info.get("function_name")
+            args = function_info.get("args", [])
+            kwargs = function_info.get("kwargs", {})
+            function = getattr(module, function_name)
+            return function(*args, **kwargs)
+        except Exception as e:
+            self.logManager.log_error(f"(ActionCore) execute_function: {e}")
+            raise
