@@ -4,7 +4,7 @@ from src.tools.Chatbot.OpenAI.gpt_4o_mini import gpt_4o_mini
 from MindMap.MindMap import MindMap
 from src.Actions import *
 from src.tools.Chatbot.ChatbotUtils.SystemContexts import planning_system_context
-from src.tools.Chatbot.ChatbotUtils.Conversation.promptExtension import JSON_PROMPT_EXTENSION
+from src.tools.Chatbot.ChatbotUtils.Conversation import JSON_PROMPT_EXTENSION, unwrap_codeblock
 
 class SaGoSystems:
     def __init__(self, logManager: LogManager, mindMap: MindMap):
@@ -19,8 +19,12 @@ class SaGoSystems:
         self.logManager.log_info(f"(SaGoSystems) Planning")
         system_context = planning_system_context()
         agent_response = self.chatbot.chat(user_msg=user_msg, system_context=system_context, prompt_extention=JSON_PROMPT_EXTENSION)
-
-        plan = json.loads(agent_response)
+        agent_response = unwrap_codeblock(agent_response)
+        try:
+            plan = json.loads(agent_response)
+        except json.JSONDecodeError:
+            self.logManager.log_error(f"(SaGoSystems) Planning: JSON Decode Error\nresponse: {agent_response}")
+            raise ValueError(f"(SaGoSystems) Planning: JSON Decode Error\nresponse: {agent_response}")
         plan = self.check_plan(plan)
 
         return plan

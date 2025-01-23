@@ -52,8 +52,15 @@ class Coder:
 
     def execute_script(self, code):
         script_path = f"{CODING_PLAYGROUND}/{code['file_name']}"
-        try:
-            result = subprocess.run(["python", script_path], capture_output=True, text=True)
+        try:            
+            if os.name == 'posix':
+                exec_list = ["python3", script_path]
+            elif os.name == 'nt':
+                exec_list = ["python", script_path]
+            else:
+                raise EnvironmentError("Unsupported operating system")
+            
+            result = subprocess.run(exec_list, capture_output=True, text=True)
 
             if result.returncode == 0:
                 self.logManager.log_info(f"(Coder) execute_script: OK")
