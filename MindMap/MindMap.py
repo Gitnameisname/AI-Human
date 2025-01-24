@@ -15,7 +15,6 @@ class MindMap:
         self.td_memory = self.load_memory(self.tdm_filepath)
         self.ti_memory = self.load_memory(R_TI_MEMORY_PATH)
         self.sago_process_memory = []
-        self.instance_memory = []
 
     def create_memory_file(self):
         tdm_filename = datetime.datetime.now().strftime("%Y%m%d") + ".json"
@@ -88,25 +87,20 @@ class MindMap:
         except FileNotFoundError:
             self.logManager.log_error(f"Memory Save: Failed - File not found")
 
-    def add_instance_memory(self, actor: str, action:str, request: str, result: str):
+    def add_instance_memory(self, memory: list, actor: str, action:str, request: str, result: str) -> list:
         new_entry = {
             "actor": actor,
             "action": action,
             "request": request,
             "result": result
         }
-        self.instance_memory.append(new_entry)
 
-    def initialize_instance_memory(self):
-        self.instance_memory = []
+        memory.append(new_entry)
+        return memory
 
     def add_sago_process_memory(self, action:str, request: str, result: str):
         new_entry = {
             "action": action,
-            "related_action": {
-                "previous_action": "",
-                "next_action": ""
-            },
             "request": request,
             "result": result
         }

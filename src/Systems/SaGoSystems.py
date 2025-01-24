@@ -12,8 +12,39 @@ class SaGoSystems:
         self.mindMap = mindMap
         self.actionCore = ActionCore(logManager)
         self.coder = Coder(logManager=self.logManager, mindMap=self.mindMap)
+        self.math = Math(logManager=self.logManager, mindMap=self.mindMap)
         self.chatbot = gpt_4o_mini()
         self.logManager.log_info(f"(SaGoSystems) Load: OK")
+
+    def SaGoProcess(self, user_msg, plan):
+        self.logManager.log_info(f"(SaGoSystems) SaGoProcess")
+
+        self.mindMap.initialize_sago_process_memory()
+        # self.mindMap.add_sago_process_memory(action='listening', request=user_msg, result="")
+
+        for action in plan:
+            if action['action'] == 'use_module':
+                response = use_module(user_msg, self.logManager, self.chatbot, self.actionCore)
+                self.mindMap.add_sago_process_memory(action='use_module', request=action['description'], result=response)
+            
+            elif action['action'] == 'make_conclusion':
+                conclusion = make_conclusion(self.mindMap.sago_process_memory, self.logManager, self.chatbot)
+                self.logManager.log_info(f"(SaGoSystems) SaGoProcess: Conclusion\nconclusion: {conclusion}")
+                self.mindMap.initialize_sago_process_memory()
+                self.mindMap.add_td_memory(category="Thought", speaker="Model", contents=conclusion)
+
+                return conclusion
+            
+            elif action['action'] == 'coding':
+                self.coder.execute_codes(requests=action['description'])
+
+            elif action['action'] == 'math':
+                math_memory = self.math.solver(problems=user_msg)
+                self.mindMap.sago_process_memory += math_memory
+
+            else:
+                self.logManager.log_error(f"(SaGoSystems) SaGoProcess: Invalid Action\naction: {action['action']}")
+                raise ValueError(f"(SaGoSystems) SaGoProcess: Invalid Action\naction: {action['action']}")
 
     def planning(self, user_msg):
         self.logManager.log_info(f"(SaGoSystems) Planning")
@@ -58,29 +89,3 @@ class SaGoSystems:
 
         self.logManager.log_info(f"(SaGoSystems) Plan after:\n{plan}")
         return plan
-
-    def SaGoProcess(self, user_msg, plan):
-        self.logManager.log_info(f"(SaGoSystems) SaGoProcess")
-
-        self.mindMap.initialize_sago_process_memory()
-        # self.mindMap.add_sago_process_memory(action='listening', request=user_msg, result="")
-
-        for action in plan:
-            if action['action'] == 'use_module':
-                response = use_module(user_msg, self.logManager, self.chatbot, self.actionCore)
-                self.mindMap.add_sago_process_memory(action='use_module', request=action['description'], result=response)
-            
-            elif action['action'] == 'make_conclusion':
-                conclusion = make_conclusion(self.mindMap.sago_process_memory, self.logManager, self.chatbot)
-                self.logManager.log_info(f"(SaGoSystems) SaGoProcess: Conclusion\nconclusion: {conclusion}")
-                self.mindMap.initialize_sago_process_memory()
-                self.mindMap.add_td_memory(category="Thought", speaker="Model", contents=conclusion)
-
-                return conclusion
-            
-            elif action['action'] == 'coding':
-                self.coder.execute_codes(requests=action['description'])
-
-            else:
-                self.logManager.log_error(f"(SaGoSystems) SaGoProcess: Invalid Action\naction: {action['action']}")
-                raise ValueError(f"(SaGoSystems) SaGoProcess: Invalid Action\naction: {action['action']}")

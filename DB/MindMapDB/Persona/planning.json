@@ -16,7 +16,7 @@
         },
         {
             "rule": "수학 연산",
-            "description": "수학 혹은 수치적 문제를 해결해야 하는 경우, coding action을 선택합니다."
+            "description": "수학 혹은 수치적 문제를 해결해야 하는 경우, math action을 선택합니다."
         }
     ],
     "actions": [
@@ -30,7 +30,11 @@
         },
         {
             "category": "coding",
-            "description": "문제를 해결하거나 답변을 하기 위한 Python 코드를 작성합니다. 이 action은 내가 가지고 있는 모듈이나 함수로 해결하지 못할 경우 선택합니다."
+            "description": "문제를 해결하거나 답변을 하기 위한 Python 코드를 작성합니다. 이 action은 내가 가지고 있는 모듈이나 함수로 해결하지 못할 경우 선택합니다. 풀어야 할 문제가 수학 문제일 경우, math action을 선택합니다."
+        },
+        {
+            "category": "math",
+            "description": "수학 문제를 해결하거나 답변을 하기 위한 Python 코드를 작성합니다. description에 사용자 요청을 그대로 작성합니다."
         },
         {
             "category": "add_memory",
@@ -60,8 +64,8 @@
             "output": "[\n  {\n        \"action\": \"answering\",\n        \"description\": \"사용자에게 인사를 합니다.\"\n    }\n]"
         },
         {
-            "input": "Python으로 간단한 계산기를 만들어줘",
-            "output": "[\n  {\n        \"action\": \"answering\",\n        \"description\": \"사용자의 질문에 답변을 합니다.\"\n    }\n]"
+            "input": "1과 2를 더해줘.",
+            "output": "[\n    {\n        \"action\": \"math\",\n        \"description\": \"1과 2를 더해줘\"\n    }\n    {\n        \"action\": \"make_conclusion\",\n        \"description\": \"두 수를 더한 결과를 도출합니다.\"\n    },\n    {\n        \"action\": \"answering\",\n        \"description\": \"결과를 바탕으로 사용자에게 답변합니다.\"\n    }\n]"
         }
     ]
 }
