@@ -1,0 +1,56 @@
+[
+    {
+        "time": "2025-01-28 23:20:21",
+        "category": "answering",
+        "speaker": "User",
+        "contents": "3.11과 3.9중에서 큰 수를 말해줘"
+    },
+    {
+        "time": "2025-01-28 23:20:33",
+        "category": "Thought",
+        "speaker": "Model",
+        "contents": "\"3.11는 3.9보다 작습니다.\""
+    },
+    {
+        "time": "2025-01-28 23:20:34",
+        "category": "answering",
+        "speaker": "Model",
+        "contents": "3.11과 3.9 중에서 큰 수는 3.9입니다. 3.11은 3.9보다 작습니다."
+    },
+    {
+        "time": "2025-01-28 23:21:03",
+        "category": "answering",
+        "speaker": "User",
+        "contents": "2.6에서 2.1을 빼면 얼마야?"
+    },
+    {
+        "time": "2025-01-28 23:21:09",
+        "category": "Thought",
+        "speaker": "Model",
+        "contents": "\"3.11는 3.9보다 작으며, 2.6에서 2.1을 빼면 0.5가 됩니다.\""
+    },
+    {
+        "time": "2025-01-28 23:21:10",
+        "category": "answering",
+        "speaker": "Model",
+        "contents": "2.6에서 2.1을 빼면 0.5가 됩니다."
+    },
+    {
+        "time": "2025-01-28 23:21:43",
+        "category": "answering",
+        "speaker": "User",
+        "contents": "2+4x5를 해봐"
+    },
+    {
+        "time": "2025-01-28 23:21:55",
+        "category": "Thought",
+        "speaker": "Model",
+        "contents": "\"3.11는 3.9보다 작습니다.\""
+    },
+    {
+        "time": "2025-01-28 23:21:56",
+        "category": "answering",
+        "speaker": "Model",
+        "contents": "\"2 + 4 x 5는 2 + 20으로 계산되어 22가 됩니다.\""
+    }
+]

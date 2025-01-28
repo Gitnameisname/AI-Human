@@ -1,4 +1,4 @@
-from src.tools.Chatbot.OpenAI.gpt_4o_mini import gpt_4o_mini
+from src.tools.Chatbot.OpenAI.chatGPT import chatGPT
 from src.tools.Chatbot.ChatbotUtils.SystemContexts import *
 
 from MindMap.MindMap import MindMap
@@ -9,7 +9,7 @@ class BrocaSystems:
         self.logManager = logManager
         self.mindMap = MindMap(self.logManager)
         self.logManager.log_info(f"MindMap Load: OK")
-        self.chatbot = gpt_4o_mini()
+        self.chatbot = chatGPT(model_name="gpt-4o-mini", max_tokens=2048)
         self.logManager.log_info(f"MistralNemo Load: OK")
         self.saGoSystems = SaGoSystems(self.logManager, self.mindMap)
         self.logManager.log_info(f"SaGoSystems Load: OK")
@@ -31,8 +31,10 @@ class BrocaSystems:
             conclusion = self.saGoSystems.SaGoProcess(user_msg=user_msg, plan=plan[:-1])
 
         system_context = answering_system_context(user_msg=user_msg, conclusion=conclusion)
+        self.logManager.log_info(f"System Context: {system_context}")
+        self.logManager.log_info(f"td_memory: {self.mindMap.td_memory}")
 
-        for agent_response in self.chatbot.stream_chat(user_msg=user_msg, memory=self.mindMap.td_memory, system_context=system_context):
+        for agent_response in self.chatbot.stream_chat(user_msg=user_msg, memory=self.mindMap.td_memory, system_context=system_context, conclusion=conclusion):
             yield agent_response
 
         self.mindMap.add_td_memory(category="answering", speaker="Model", contents=agent_response)

@@ -6,7 +6,7 @@ from MindMap.LogManager import LogManager
 from MindMap.MindMap import MindMap
 from src.Actions import *
 from src.Systems.ActionCore import ActionCore
-from src.tools.Chatbot.OpenAI.gpt_4o_mini import gpt_4o_mini
+from src.tools.Chatbot.OpenAI.chatGPT import chatGPT
 from src.tools.Chatbot.ChatbotUtils.SystemContexts import math_solving_problem_system_context, math_system_context
 from src.tools.Chatbot.ChatbotUtils.Conversation import JSON_PROMPT_EXTENSION, unwrap_codeblock
 from src.constants import CODING_PLAYGROUND
@@ -16,7 +16,7 @@ class Math:
         self.logManager = logManager
         self.mindMap = mindMap
         self.actionCore = ActionCore(logManager)
-        self.chatbot = gpt_4o_mini()
+        self.chatbot = chatGPT(model_name="gpt-4o-mini", max_tokens=2048)
         self.logManager.log_info(f"(Math) Load: OK")
 
         # 단계별 수학 연산 결과를 저장하는 리스트입니다.

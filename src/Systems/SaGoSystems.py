@@ -1,6 +1,6 @@
 import json
 from MindMap.LogManager import LogManager
-from src.tools.Chatbot.OpenAI.gpt_4o_mini import gpt_4o_mini
+from src.tools.Chatbot.OpenAI.chatGPT import chatGPT
 from MindMap.MindMap import MindMap
 from src.Actions import *
 from src.tools.Chatbot.ChatbotUtils.SystemContexts import planning_system_context
@@ -13,7 +13,7 @@ class SaGoSystems:
         self.actionCore = ActionCore(logManager)
         self.coder = Coder(logManager=self.logManager, mindMap=self.mindMap)
         self.math = Math(logManager=self.logManager, mindMap=self.mindMap)
-        self.chatbot = gpt_4o_mini()
+        self.chatbot = chatGPT(model_name="gpt-4o-mini", max_tokens=2048)
         self.logManager.log_info(f"(SaGoSystems) Load: OK")
 
     def SaGoProcess(self, user_msg, plan):

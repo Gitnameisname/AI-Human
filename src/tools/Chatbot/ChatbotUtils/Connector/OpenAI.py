@@ -1,6 +1,6 @@
 from openai import OpenAI
 
-def construct_prompt_with_context(main_prompt, conversation_history=[], prompt_extension=''):
+def construct_prompt_with_context(main_prompt, conversation_history=[], prompt_extension='', conclusion=""):
     """
     사용자 메시지와 시스템 컨텍스트를 사용하여 프롬프트를 생성합니다.
     """
@@ -13,6 +13,9 @@ def construct_prompt_with_context(main_prompt, conversation_history=[], prompt_e
         full_prompt += f"User: {user_msg}\nModel: {agent_response}\n"
     
     full_prompt += f"{main_prompt}"
+
+    if conclusion:
+        full_prompt += f"\nConclusion: {conclusion}"
     
     return full_prompt + f"\n{prompt_extension}"
 

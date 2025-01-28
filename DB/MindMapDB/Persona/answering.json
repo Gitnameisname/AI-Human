@@ -15,6 +15,5 @@
             "description": "자체적인 생각을 통해 결론을 도출해낸 경우, conclusion 값을 참조하여 답변을 생성합니다."
         }
     ],
-    "user_message": "",
     "conclusion": ""
 }

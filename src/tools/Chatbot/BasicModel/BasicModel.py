@@ -32,14 +32,15 @@ class BasicModel:
 
         return agent_response
     
-    def stream_chat(self, user_msg, memory=None, system_context="", prompt_extention="", temperature: float = 0.7, top_p: float = 0.7):
+    def stream_chat(self, user_msg, memory=None, system_context="", prompt_extention="", conclusion="", temperature: float = 0.7, top_p: float = 0.7):
 
         if memory:
             trimed_conversation_history = trim_conversation_history(memory=memory, tokenizer=self.tokenizer, max_tokens=self.max_tokens)
-            prompt = construct_prompt_with_context(user_msg, conversation_history=trimed_conversation_history, prompt_extension=prompt_extention)
+            prompt = construct_prompt_with_context(user_msg, conversation_history=trimed_conversation_history, prompt_extension=prompt_extention, conclusion=conclusion)
+            print(f"prompt: {prompt}")
         
         else:
-            prompt = construct_prompt_with_context(user_msg, prompt_extension=prompt_extention)
+            prompt = construct_prompt_with_context(user_msg, prompt_extension=prompt_extention, conclusion=conclusion)
 
         for agent_response, _ in generate_stream(client=self.client, model_name=self.model_info['model_name'], prompt=prompt, system_context=system_context, temperature=temperature, top_p=top_p):
                 yield agent_response
