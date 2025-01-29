@@ -27,3 +27,4 @@ AI Human 프로젝트는 기본적인 발화 기능으로서 잘 동작하는 LL
         - math: 수학 관련 모듈
         - time: 시간 관련 모듈
 - constants.py: AI Human 기동에 필요한 상수들을 모아놓은 스크립트
+- runChatbot.sh: AI Human을 로컬에서 돌릴 때 사용하는 sh 파일

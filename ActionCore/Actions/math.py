@@ -4,8 +4,7 @@ import subprocess
 
 from MindMap.LogManager import LogManager
 from MindMap.MindMap import MindMap
-from src.Actions import *
-from src.Systems.ActionCore import ActionCore
+from ActionCore.ActionCore import ActionCore
 from src.tools.Chatbot.OpenAI.chatGPT import chatGPT
 from src.tools.Chatbot.ChatbotUtils.SystemContexts import math_solving_problem_system_context, math_system_context
 from src.tools.Chatbot.ChatbotUtils.Conversation import JSON_PROMPT_EXTENSION, unwrap_codeblock

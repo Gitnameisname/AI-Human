@@ -2,7 +2,7 @@ import json
 from MindMap.LogManager import LogManager
 from src.tools.Chatbot.OpenAI.chatGPT import chatGPT
 from MindMap.MindMap import MindMap
-from src.Actions import *
+from ActionCore.Actions import *
 from src.tools.Chatbot.ChatbotUtils.SystemContexts import planning_system_context
 from src.tools.Chatbot.ChatbotUtils.Conversation import JSON_PROMPT_EXTENSION, unwrap_codeblock
 

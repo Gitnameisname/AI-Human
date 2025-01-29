@@ -1,0 +1,86 @@
+[
+    {
+        "time": "2025-01-29 21:05:15",
+        "category": "answering",
+        "speaker": "User",
+        "contents": "안녕?"
+    },
+    {
+        "time": "2025-01-29 21:05:17",
+        "category": "answering",
+        "speaker": "Model",
+        "contents": "안녕하세요! 어떻게 도와드릴까요?"
+    },
+    {
+        "time": "2025-01-29 21:05:22",
+        "category": "answering",
+        "speaker": "User",
+        "contents": "지금 며칠이야?"
+    },
+    {
+        "time": "2025-01-29 21:05:26",
+        "category": "Thought",
+        "speaker": "Model",
+        "contents": "\"지금까지의 내용을 종합해보면, 현재 날짜는 29일이며, 이를 바탕으로 추가적인 논의나 결정을 내릴 수 있습니다.\""
+    },
+    {
+        "time": "2025-01-29 21:05:27",
+        "category": "answering",
+        "speaker": "Model",
+        "contents": "현재 날짜는 29일입니다. 추가적인 논의나 결정을 내릴 수 있는 기초가 될 수 있습니다. 다른 질문이 있으신가요?"
+    },
+    {
+        "time": "2025-01-29 21:05:39",
+        "category": "answering",
+        "speaker": "User",
+        "contents": "지금 시간을 알려줘"
+    },
+    {
+        "time": "2025-01-29 21:05:44",
+        "category": "Thought",
+        "speaker": "Model",
+        "contents": "\"지금까지의 내용을 종합해보면, 우리는 특정 주제에 대한 깊이 있는 이해를 도출할 수 있었습니다. 이러한 결론은 앞으로의 의사결정이나 행동에 중요한 기초가 될 것입니다.\""
+    },
+    {
+        "time": "2025-01-29 21:05:46",
+        "category": "answering",
+        "speaker": "Model",
+        "contents": "현재 시간을 알려드릴 수는 없지만, 일반적으로 시간을 확인하려면 시계를 보시거나 스마트폰, 컴퓨터의 시간을 확인하시면 됩니다. \"지금까지의 내용을 종합해보면, 우리는 특정 주제에 대한 깊이 있는 이해를 도출할 수 있었습니다. 이러한 결론은 앞으로의 의사결정이나 행동에 중요한 기초가 될 것입니다.\""
+    },
+    {
+        "time": "2025-01-29 21:06:20",
+        "category": "answering",
+        "speaker": "User",
+        "contents": "2.19와 2.45중에서 어느게 더 작아?"
+    },
+    {
+        "time": "2025-01-29 21:06:39",
+        "category": "Thought",
+        "speaker": "Model",
+        "contents": "\"2.19는 2.45보다 작습니다.\""
+    },
+    {
+        "time": "2025-01-29 21:06:39",
+        "category": "answering",
+        "speaker": "Model",
+        "contents": "2.19는 2.45보다 작습니다."
+    },
+    {
+        "time": "2025-01-29 21:06:54",
+        "category": "answering",
+        "speaker": "User",
+        "contents": "2.7과 2.13중에서 더 큰 수는?"
+    },
+    {
+        "time": "2025-01-29 21:07:08",
+        "category": "Thought",
+        "speaker": "Model",
+        "contents": "\"2.19는 2.45보다 작고, 2.7는 2.13보다 큽니다.\""
+    },
+    {
+        "time": "2025-01-29 21:07:08",
+        "category": "answering",
+        "speaker": "Model",
+        "contents": "\"2.7는 2.13보다 큽니다.\""
+    }
+]

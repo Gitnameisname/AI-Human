@@ -1,6 +1,6 @@
 import json
 from MindMap.LogManager import LogManager
-from src.Systems.ActionCore import ActionCore
+from ActionCore.ActionCore import ActionCore
 from src.tools.Chatbot.BasicModel.BasicModel import BasicModel
 from src.tools.Chatbot.ChatbotUtils.SystemContexts import module_manager_system_context, function_manager_system_context
 from src.tools.Chatbot.ChatbotUtils.Conversation.promptExtension import MODULE_PATH, JSON_PROMPT_EXTENSION
