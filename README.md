@@ -1,54 +1,29 @@
-* test case 1
-    * 설정  
-        --max_memory 48
-        --max_length 32768 
-        --max_new_tokens 1024 
+# AI Human Project
+이 프로젝트는 AI를 사용하여 사람처럼 깊게 생각할 수 있도록 하는 AI Human을 만들기 위한 것이다. AI Human이란 말하는 기능만이 아니라 사고를 통해 스스로 답을 도출해낼 수 있어야 하며, 성격과 자율적인 의지, 기억 능력 등 사람의 두뇌 행동 전반을 모사한 프로그램이다.
 
-        device: self.model.device
-        stream: False
+사람은 기본적으로 어떠한 주제에 대해 머릿속으로 되내이며, 사고하고, 연산하고, 종합하는 행동을 취한다. LLM은 단순히 확률적 모델에 의한 자동화된 발화기능이다. 우리가 일상 대화를 하거나 잘 알고 있는 지식에 대해 이야기 할 때는 깊은 사고를 거치지 않고서도 바로바로 말할 수 있는 것과 같다고 볼 수 있다. 그러나 수학 문제를 풀거나, 창의적인 사고를 할 때는 단계별 계산을 수행하거나 여러 단계의 고뇌를 거쳐 결론을 도출해내기도 하며, 다양한 시뮬레이션을 통해 더 나은 선택지를 취해가며 원하는 결과를 만들어내거나 결론에 도달하기도 한다.
 
-    * 답변 소요 시간: 5m 48s
+AI Human 프로젝트는 기본적인 발화 기능으로서 잘 동작하는 LLM을 가지고 심층 논리 단계를 구현하여, 복잡한 작업을 수행하기 위한 계획을 세우고 실행하거나, 어려운 수학 문제들을 풀어내는 등의 수준 높은 작업들을 정확하게 수행하도록 하는 프로그램을 개발하고자 한다. 더 나아가 의사표현과 의지, 성격과 마음, 기억과 예측, 욕망과 감정을 모사하는 것을 목표로 한다.
 
-* test case 2
-    * 설정  
-        --max_memory 48
-        --max_length 32768 
-        --max_new_tokens 1024 
+## 단계
+- [x] 기초적인 AI 챗봇
+- [x] 단계적 사고 기능 개발
+- [ ] 기억 회상(검색) 기능 개발
+- [ ] 성격과 성향 모델 개발
+- [ ] 가정(if)을 통한 시뮬레이션과 다경로 사고 기능 개발
 
-        device: mps
-        stream: False
-
-    * 답변 소요 시간: 1m 15s 2m 27s, 30s
-
-* test case 3
-    * 설정  
-        --max_memory 48
-        --max_length 4096 
-        --max_new_tokens 1024 
-
-        device: mps
-        stream: False
-
-    * 답변 소요 시간: 50s, 1m, 41.7s
-
-* test case 3
-    * 설정  
-        --max_memory 48
-        --max_length 2048 
-        --max_new_tokens 1024 
-
-        device: mps
-        stream: False
-
-    * 답변 소요 시간: 50s
-
-* test case 3
-    * 설정  
-        --max_memory 48
-        --max_length 1024
-        --max_new_tokens 1024 
-
-        device: mps
-        stream: False
-
-    * 답변 소요 시간: 60s, 38s, 37s
+## 구조
+- ActionCore: 행동을 담당하는 기능
+- DB: 각종 데이터를 저장하는 장소
+- MindMap: 기억을 담당하는 기능
+- Playground: AI가 행동에 필요한 코드를 작성하는 장소
+- src
+    - Systems: 구분하기에는 규모가 작은 기능들의 모음
+        - BrocaSystems: 발화를 담당하는 기능
+        - SaGoSystems: 사고능력 기능
+    - tools: AI Human이 사용할 수 있는 내부 기능 함수 모음
+        - Chatbot: 사용 가능한 챗봇 모델
+        - file: 파일 관련 응용 모듈
+        - math: 수학 관련 모듈
+        - time: 시간 관련 모듈
+- constants.py: AI Human 기동에 필요한 상수들을 모아놓은 스크립트
