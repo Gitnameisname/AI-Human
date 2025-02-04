@@ -1,0 +1,248 @@
+[
+    {
+        "time": "2025-02-03 05:05:43",
+        "category": "answering",
+        "speaker": "User",
+        "contents": "안녕?"
+    },
+    {
+        "time": "2025-02-03 05:05:44",
+        "category": "answering",
+        "speaker": "Model",
+        "contents": "안녕하세요! 어떻게 도와드릴까요?"
+    },
+    {
+        "time": "2025-02-03 05:05:50",
+        "category": "answering",
+        "speaker": "User",
+        "contents": "what time is it now?"
+    },
+    {
+        "time": "2025-02-03 05:05:56",
+        "category": "Thought",
+        "speaker": "Model",
+        "contents": "\"현재 시간은 05:05:54입니다.\""
+    },
+    {
+        "time": "2025-02-03 05:05:57",
+        "category": "answering",
+        "speaker": "Model",
+        "contents": "현재 시간은 05:05:54입니다."
+    },
+    {
+        "time": "2025-02-03 05:06:16",
+        "category": "answering",
+        "speaker": "User",
+        "contents": "What is the timezone of you?"
+    },
+    {
+        "time": "2025-02-03 05:06:19",
+        "category": "answering",
+        "speaker": "Model",
+        "contents": "현재 시간은 UTC(협정 세계시) 기준으로 제공되었습니다. 특정 지역의 시간대에 따라 다를 수 있습니다. 어떤 지역의 시간을 알고 싶으신가요?"
+    },
+    {
+        "time": "2025-02-03 05:06:49",
+        "category": "answering",
+        "speaker": "User",
+        "contents": "Change the time zone to Seoul and let me know again the current time"
+    },
+    {
+        "time": "2025-02-03 14:06:58",
+        "category": "Thought",
+        "speaker": "Model",
+        "contents": "\"현재 서울 시간: 2025-02-03 14:06:56\""
+    },
+    {
+        "time": "2025-02-03 14:06:59",
+        "category": "answering",
+        "speaker": "Model",
+        "contents": "현재 서울 시간: 2025-02-03 14:06:56입니다."
+    },
+    {
+        "time": "2025-02-03 14:07:09",
+        "category": "answering",
+        "speaker": "User",
+        "contents": "What is the date today?"
+    },
+    {
+        "time": "2025-02-03 14:07:13",
+        "category": "Thought",
+        "speaker": "Model",
+        "contents": "\"Today is 2025-02-03.\""
+    },
+    {
+        "time": "2025-02-03 14:07:14",
+        "category": "answering",
+        "speaker": "Model",
+        "contents": "Today is 2025-02-03."
+    },
+    {
+        "time": "2025-02-03 14:07:31",
+        "category": "answering",
+        "speaker": "User",
+        "contents": "Could you let me know the hour now?"
+    },
+    {
+        "time": "2025-02-03 14:07:35",
+        "category": "Thought",
+        "speaker": "Model",
+        "contents": "\"현재 시간은 14시입니다.\""
+    },
+    {
+        "time": "2025-02-03 14:07:36",
+        "category": "answering",
+        "speaker": "Model",
+        "contents": "\"현재 시간은 14시입니다.\""
+    },
+    {
+        "time": "2025-02-03 14:08:04",
+        "category": "answering",
+        "speaker": "User",
+        "contents": "What is bigger between 3.11 and 3.9?"
+    },
+    {
+        "time": "2025-02-03 05:09:38",
+        "category": "answering",
+        "speaker": "User",
+        "contents": "change your timezone to the Seoul."
+    },
+    {
+        "time": "2025-02-03 05:11:32",
+        "category": "answering",
+        "speaker": "User",
+        "contents": "지금 시간대를 한국표준시로 바꾸고, 현재 시간을 확인해줘"
+    },
+    {
+        "time": "2025-02-03 14:11:38",
+        "category": "Thought",
+        "speaker": "Model",
+        "contents": "\"현재 한국표준시(KST)는 UTC+9 시간대에 해당합니다. 현재 시간을 확인하려면, 현재 UTC 시간을 기준으로 9시간을 더하면 됩니다.\""
+    },
+    {
+        "time": "2025-02-03 14:11:39",
+        "category": "answering",
+        "speaker": "Model",
+        "contents": "현재 한국표준시(KST)는 UTC+9 시간대에 해당합니다. 현재 시간을 확인하려면, 현재 UTC 시간을 기준으로 9시간을 더하면 됩니다."
+    },
+    {
+        "time": "2025-02-03 14:11:51",
+        "category": "answering",
+        "speaker": "User",
+        "contents": "지금 몇시야?"
+    },
+    {
+        "time": "2025-02-03 14:11:57",
+        "category": "Thought",
+        "speaker": "Model",
+        "contents": "\"현재 시각은 14시입니다.\""
+    },
+    {
+        "time": "2025-02-03 14:11:58",
+        "category": "answering",
+        "speaker": "Model",
+        "contents": "\"현재 시각은 14시입니다.\""
+    },
+    {
+        "time": "2025-02-03 14:12:11",
+        "category": "answering",
+        "speaker": "User",
+        "contents": "What is bigger between 3.11 and 3.19"
+    },
+    {
+        "time": "2025-02-03 05:18:51",
+        "category": "answering",
+        "speaker": "User",
+        "contents": "3.11과 3.9 중에서 더 큰 수는?"
+    },
+    {
+        "time": "2025-02-03 05:21:04",
+        "category": "answering",
+        "speaker": "User",
+        "contents": "3.11과 3.9 중에서 더 큰 수는 뭐야?"
+    },
+    {
+        "time": "2025-02-03 05:21:16",
+        "category": "Thought",
+        "speaker": "Model",
+        "contents": "\"3.11은 3.9보다 작습니다. 따라서 3.9가 더 큰 수입니다.\""
+    },
+    {
+        "time": "2025-02-03 05:21:17",
+        "category": "answering",
+        "speaker": "Model",
+        "contents": "\"3.11은 3.9보다 작습니다. 따라서 3.9가 더 큰 수입니다.\""
+    },
+    {
+        "time": "2025-02-03 05:21:30",
+        "category": "answering",
+        "speaker": "User",
+        "contents": "지금 몇시야?"
+    },
+    {
+        "time": "2025-02-03 05:21:35",
+        "category": "Thought",
+        "speaker": "Model",
+        "contents": "\"현재 시간은 05시입니다.\""
+    },
+    {
+        "time": "2025-02-03 05:21:36",
+        "category": "answering",
+        "speaker": "Model",
+        "contents": "\"현재 시간은 05시입니다.\""
+    },
+    {
+        "time": "2025-02-03 05:21:49",
+        "category": "answering",
+        "speaker": "User",
+        "contents": "지금 시간대를 한국 표준시로 바꾸고, 현재 시간을 다시 알려줘"
+    },
+    {
+        "time": "2025-02-03 14:21:54",
+        "category": "Thought",
+        "speaker": "Model",
+        "contents": "\"현재 시간은 한국 표준시(KST)로 변환된 결과입니다.\""
+    },
+    {
+        "time": "2025-02-03 14:21:55",
+        "category": "answering",
+        "speaker": "Model",
+        "contents": "현재 시간은 한국 표준시(KST)로 변환된 결과입니다."
+    },
+    {
+        "time": "2025-02-03 14:22:04",
+        "category": "answering",
+        "speaker": "User",
+        "contents": "현재 시간은 몇시야?"
+    },
+    {
+        "time": "2025-02-03 14:22:09",
+        "category": "Thought",
+        "speaker": "Model",
+        "contents": "\"현재 시간은 14시입니다.\""
+    },
+    {
+        "time": "2025-02-03 14:22:09",
+        "category": "answering",
+        "speaker": "Model",
+        "contents": "\"현재 시간은 14시입니다.\""
+    },
+    {
+        "time": "2025-02-03 14:22:58",
+        "category": "answering",
+        "speaker": "User",
+        "contents": "y=3x^2 + 2x-5를 0부터 3까지 적분한 값을 알려줘"
+    },
+    {
+        "time": "2025-02-03 14:23:19",
+        "category": "Thought",
+        "speaker": "Model",
+        "contents": "\"y=3x^2 + 2x - 5를 0부터 3까지 적분한 값은 21입니다.\""
+    },
+    {
+        "time": "2025-02-03 14:23:20",
+        "category": "answering",
+        "speaker": "Model",
+        "contents": "\"y=3x^2 + 2x - 5를 0부터 3까지 적분한 값은 21입니다.\""
+    }
+]

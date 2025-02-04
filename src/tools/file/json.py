@@ -10,10 +10,14 @@ def get_json_data(path):
     Returns:
         dict: json 파일을 읽은 dict 데이터
     """
-    with open(path, "r", encoding="utf-8") as file:
-        data = json.load(file)
+    try:
+        with open(path, "r", encoding="utf-8") as file:
+            data = json.load(file)
 
-    return data
+        return data
+    
+    except FileNotFoundError:
+        return []
 
 def get_data_from_key(data: dict, key: str, key_value: str):
     """

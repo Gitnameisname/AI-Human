@@ -25,12 +25,24 @@
             "description": "가지고 있는 모듈 목록에서 필요한 모듈을 찾아, 문제 해결에 적합한 함수를 찾아냅니다. 그리고 해당 함수를 사용하여 문제를 해결합니다."
         },
         {
+            "category": "database_retival",
+            "description": "데이터베이스에서 필요한 정보를 찾습니다."
+        },
+        {
             "category": "coding",
             "description": "문제를 해결하거나 답변을 하기 위한 Python 코드를 작성합니다. 이 action은 내가 가지고 있는 모듈이나 함수로 해결하지 못할 경우 선택합니다. 풀어야 할 문제가 수학 문제일 경우, math action을 선택합니다."
         },
         {
             "category": "math",
             "description": "수학 문제를 해결하거나 답변을 하기 위한 Python 코드를 작성합니다. description에 사용자 요청을 그대로 작성합니다."
+        },
+        {
+            "category": "add_memory",
+            "description": "정보를 기억 데이터베이스에 추가합니다."
+        },
+        {
+            "category": "recall_memory",
+            "description": "기억 데이터베이스에서 정보를 기억해냅니다."
         },
         {
             "category": "make_conclusion",

@@ -28,7 +28,7 @@ class SaGoSystems:
                 self.mindMap.add_sago_process_memory(action='use_module', request=action['description'], result=response)
             
             elif action['action'] == 'make_conclusion':
-                conclusion = make_conclusion(self.mindMap.sago_process_memory, self.logManager, self.chatbot)
+                conclusion = make_conclusion(user_msg, self.mindMap.sago_process_memory, self.logManager, self.chatbot)
                 self.logManager.log_info(f"(SaGoSystems) SaGoProcess: Conclusion\nconclusion: {conclusion}")
                 self.mindMap.initialize_sago_process_memory()
                 self.mindMap.add_td_memory(category="Thought", speaker="Model", contents=conclusion)
